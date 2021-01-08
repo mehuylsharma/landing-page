@@ -8,21 +8,136 @@
   src: url("../../fonts/Louis George Cafe Light.ttf");
 }
 
+/* All the variables that are used */
+/* Sizes */
+/* Colors */
 body {
-  margin: 0px;
-  margin-left: 50px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
+}
+
+.content {
+  margin-left: 50px;
+  margin-top: 25px;
+  position: fixed;
+  color: #d8d0cc;
   font-family: "LG Cafe";
+}
+
+.btn {
+  background-color: #e4dcc5;
+  font-family: 'Nilland';
+  border: 0;
+  opacity: 0.8;
+  height: 100%;
+  width: 100px;
+  -webkit-transition: opacity 0.5s ease-out, -webkit-transform 0.75s ease-out;
+  transition: opacity 0.5s ease-out, -webkit-transform 0.75s ease-out;
+  transition: transform 0.75s ease-out, opacity 0.5s ease-out;
+  transition: transform 0.75s ease-out, opacity 0.5s ease-out, -webkit-transform 0.75s ease-out;
+}
+
+.btn:hover {
+  opacity: 1;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: opacity 0.05s ease-in, -webkit-transform 0.1s ease-in;
+  transition: opacity 0.05s ease-in, -webkit-transform 0.1s ease-in;
+  transition: transform 0.1s ease-in, opacity 0.05s ease-in;
+  transition: transform 0.1s ease-in, opacity 0.05s ease-in, -webkit-transform 0.1s ease-in;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.background {
+  position: absolute;
+  z-index: -2;
+  background: -webkit-gradient(linear, right top, left top, color-stop(35%, #1f1c16), to(#4e483d));
+  background: linear-gradient(to left, #1f1c16 35%, #4e483d);
+  width: 100%;
+  height: 100vh;
+}
+
+.background .area {
+  margin: 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.background .area li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 25px;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-animation: background-live 20s linear infinite;
+          animation: background-live 20s linear infinite;
+  bottom: -150px;
+}
+
+.background .area li:nth-child(1) {
+  left: 86%;
+  width: 80px;
+  height: 80px;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+
+.background .area li:nth-child(2) {
+  left: 12%;
+  width: 30px;
+  height: 30px;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+}
+
+.background .area li:nth-child(3) {
+  left: 70%;
+  width: 100px;
+  height: 100px;
+  -webkit-animation-delay: 5.5s;
+          animation-delay: 5.5s;
+}
+
+.background .area li:nth-child(4) {
+  left: 42%;
+  width: 150px;
+  height: 150px;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-duration: 15s;
+          animation-duration: 15s;
+}
+
+.background .area li:nth-child(5) {
+  left: 65%;
+  width: 40px;
+  height: 40px;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+
+.background .area li:nth-child(6) {
+  left: 15%;
+  width: 110px;
+  height: 110px;
+  -webkit-animation-delay: 3.5s;
+          animation-delay: 3.5s;
 }
 
 .top-pane {
   width: 1000px;
-  -webkit-box-align: right;
-      -ms-flex-align: right;
-          align-items: right;
   margin-top: 10px;
-  position: absolute;
 }
 
 .top-pane .artist-title {
@@ -38,14 +153,19 @@ body {
   font-size: 18px;
 }
 
-.top-pane .info {
-  position: relative;
-  margin-left: auto;
-  margin-right: 0;
+.top-pane .info-btns {
+  position: absolute;
+  height: 75%;
+  right: 0;
+  left: auto;
+}
+
+.top-pane .info-btns button {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .img-cont-outer {
-  position: absolute;
   width: 1000px;
   height: 600px;
   margin-top: 50px;
@@ -68,7 +188,6 @@ body {
 }
 
 .cont-buttons {
-  position: absolute;
   margin-top: 50px;
   width: 1000px;
   height: 600px;
@@ -91,12 +210,70 @@ body {
 
 .cont-buttons #nextBtn {
   margin-left: 800px;
-  background-image: -webkit-gradient(linear, right top, left top, color-stop(30%, rgba(255, 255, 255, 0.35)), to(rgba(255, 255, 255, 0)));
-  background-image: linear-gradient(to left, rgba(255, 255, 255, 0.35) 30%, rgba(255, 255, 255, 0));
+  background-image: -webkit-gradient(linear, right top, left top, color-stop(10%, rgba(31, 28, 22, 0.75)), to(transparent));
+  background-image: linear-gradient(to left, rgba(31, 28, 22, 0.75) 10%, transparent);
 }
 
 .cont-buttons #prevBtn {
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(30%, rgba(255, 255, 255, 0.35)), to(rgba(255, 255, 255, 0)));
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.35) 30%, rgba(255, 255, 255, 0));
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(10%, rgba(31, 28, 22, 0.75)), to(rgba(255, 255, 255, 0)));
+  background-image: linear-gradient(to right, rgba(31, 28, 22, 0.75) 10%, rgba(255, 255, 255, 0));
+}
+
+.side-pane {
+  color: #1f1c16;
+  margin-left: 1020px;
+  margin-top: 100px;
+  width: 450px;
+  height: 500px;
+}
+
+.side-pane .brief-line {
+  font-size: 30px;
+}
+
+.side-pane .accomplishments {
+  font-size: 20px;
+}
+
+.side-pane .accomplishments ul {
+  list-style: none;
+  padding-left: 15px;
+}
+
+.side-pane .inner {
+  padding: 10px;
+  background-color: #e4dcc5;
+  width: 75%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+@-webkit-keyframes background-live {
+  0% {
+    -webkit-transform: translateY(0) rotate(0deg);
+            transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(-800px) rotate(360deg);
+            transform: translateY(-800px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes background-live {
+  0% {
+    -webkit-transform: translateY(0) rotate(0deg);
+            transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(-800px) rotate(360deg);
+            transform: translateY(-800px) rotate(360deg);
+    opacity: 0;
+  }
 }
 /*# sourceMappingURL=index.css.map */

@@ -1,18 +1,105 @@
 @import 'fonts.scss';
+@import 'variables.scss';   
 
 body {
-    margin: 0px;
-    margin-left: 50px;
-    padding: 0px;
+    margin: 0; padding: 0;
     overflow: hidden;
+}
+
+.content {
+    margin-left: 50px;
+    margin-top: 25px;
+    position: fixed;
+    color: $font-color;
     font-family: "LG Cafe";
 }
 
-.top-pane {
-    width: 1000px;
-    align-items : right;
-    margin-top: 10px;
+.btn {
+    background-color: $btn-color;
+    font-family: 'Nilland';
+    border: 0;
+    opacity: 0.8;
+    height: 100%;
+    width: $btn-width;
+    transition: transform 0.75s ease-out, opacity 0.5s ease-out;
+
+    &:hover {
+        opacity: 1;
+        transform: scale($btn-width-hover);
+        transition: transform 0.1s ease-in, opacity 0.05s ease-in;
+    }
+}
+
+.fixed {
+    position: fixed;
+}
+
+.background {
     position: absolute;
+    z-index: -2;
+    background: linear-gradient(to left, $theme-color 35%, $theme-color-light);
+    width: 100%; height: 100vh;
+
+    .area {
+        margin: 0px;
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        overflow: hidden;
+
+        li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 25px; height: 25px;
+            background: rgba(255,255,255, 0.2);
+            animation: background-live 20s linear infinite;
+            bottom: -150px;
+
+            &:nth-child(1) {
+                left: 86%;
+                width: 80px; height: 80px;
+                animation-delay: 0s;
+            }
+
+            &:nth-child(2) {
+                left: 12%;
+                width: 30px; height: 30px;
+                animation-delay: 1.5s;
+                animation-duration: 10s;
+            }
+
+            &:nth-child(3) {
+                left: 70%;
+                width: 100px; height: 100px;
+                animation-delay: 5.5s;
+            }
+
+            &:nth-child(4) {
+                left: 42%;
+                width: 150px; height: 150px;
+                animation-delay: 0s;
+                animation-duration: 15s;
+            }
+
+            &:nth-child(5) {
+                left: 65%;
+                width: 40px; height: 40px;
+                animation-delay: 0s;
+            }
+
+            &:nth-child(6) {
+                left: 15%;
+                width: 110px; height: 110px;
+                animation-delay: 3.5s;
+            }
+        }
+    }
+}
+
+.top-pane {
+    width: $cont-width;
+    margin-top: 10px;
     .artist-title {
         font-family: 'Nilland';
         font-size: 30px;
@@ -23,17 +110,20 @@ body {
     .artist-brief {
         font-size: 18px;
     }
-    .info {
-        position: relative;
-        margin-left: auto;
-        margin-right: 0;
+    .info-btns {
+        button {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        position: absolute;
+        height: 75%;
+        right: 0; left: auto;
     }
 }
 
 .img-cont-outer {
-    position: absolute;
-    width: 1000px;
-    height: 600px;
+    width: $cont-width;
+    height: $cont-height;
     margin-top: 50px;
     overflow: hidden;
     .img-cont-inner {
@@ -49,10 +139,10 @@ body {
 }
 
 .cont-buttons {
-    position: absolute;
     margin-top: 50px;
-    width: 1000px;
-    height: 600px;
+    width: $cont-width;
+    height: $cont-height;
+
     button {
         border: none;
         position: absolute;
@@ -65,11 +155,53 @@ body {
         }
         transition: opacity 0.4s ease-in-out;
     }
+
     #nextBtn {
         margin-left: 800px;
-        background-image: linear-gradient(to left, rgba(255,255,255,0.35) 30%, rgba(255,255,255,0));
+        background-image: linear-gradient(to left, $cont-btn-color 10%, transparent);
     }
     #prevBtn {
-        background-image: linear-gradient(to right, rgba(255,255,255,0.35) 30%, rgba(255,255,255,0));
+        background-image: linear-gradient(to right, $cont-btn-color 10%, rgba(255,255,255,0));
+    }
+}
+
+.side-pane {
+    color: $theme-color;
+    margin-left: 1020px;
+    margin-top: 100px;
+    width: 450px;
+    height: 500px;
+    
+    .brief-line {
+        font-size: 30px;
+    }
+
+    .accomplishments {
+        ul {
+            list-style: none;
+            padding-left: 15px;
+        }
+        font-size: 20px;
+    }
+
+    .inner {
+        padding: 10px;
+        background-color: $btn-color;
+        width: 75%;
+        position: relative;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes background-live {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-800px) rotate(360deg);
+        opacity: 0;
     }
 }
